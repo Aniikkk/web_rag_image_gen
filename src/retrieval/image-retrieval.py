@@ -42,7 +42,7 @@ def google_image_search(query, num_images=5):
     return image_urls
 
 if __name__ == "__main__":
-    query = "monkey on a fence"
+    query = "anikethan mom"
     num_images = 5
     images = google_image_search(query, num_images)
     
