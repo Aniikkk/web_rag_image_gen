@@ -1,2 +1,3 @@
-
 rag/
+data/images/*
+.DS_Store

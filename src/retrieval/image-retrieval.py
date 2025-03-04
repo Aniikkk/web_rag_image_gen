@@ -42,13 +42,13 @@ def google_image_search(query, num_images=5):
     return image_urls
 
 if __name__ == "__main__":
-    query = "anikethan mom"
+    query = "plan b electronic city"
     num_images = 5
     images = google_image_search(query, num_images)
     
     if images:
         print(f"✅ Retrieved {len(images)} Images, Downloading...")
-        downloaded_files = download_images(images, query, num_images=num_images)
+        downloaded_files = download_images(images, query,save_dir="../../data/images", num_images=num_images)
         print(f"✅ Downloaded Files: {downloaded_files}")
     else:
         print("❌ No images found.")
