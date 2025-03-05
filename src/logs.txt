@@ -11,3 +11,34 @@ Tesla initially planned to produce the vehicle in late 2021, but after many dela
 2025-03-05 10:51:31,183 - INFO - ✅ Wikipedia summary retrieved for 'cat'
 2025-03-05 10:51:31,185 - INFO - Wikipedia Summary:
 The cat (Felis catus), also referred to as the domestic cat or house cat, is a small domesticated carnivorous mammal. It is the only domesticated species of the family Felidae. Advances in archaeology and genetics have shown that the domestication of the cat occurred in the Near East around 7500 BC. It is commonly kept as a pet and farm cat, but also ranges freely as a feral cat avoiding human contact. It is valued by humans for companionship and its ability to kill vermin. Its retractable claws are adapted to killing small prey species such as mice and rats. It has a strong, flexible body, qu
+2025-03-05 10:59:12,092 - INFO - Wikipedia: language=en, user_agent: WebRAG-Bot/1.0 (contact: your-email@example.com) (Wikipedia-API/0.8.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=1
+2025-03-05 10:59:12,092 - INFO - Request URL: https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=Tesla Cybertruck&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2025-03-05 10:59:12,661 - INFO - Request URL: https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&titles=Tesla Cybertruck&explaintext=1&exsectionformat=wiki
+2025-03-05 10:59:13,297 - INFO - ✅ Wikipedia summary retrieved for 'Tesla Cybertruck'
+2025-03-05 10:59:13,300 - INFO - ✅ Saved wikipedia text: /Users/windows/projects/Web_rag_image/src/data/text/Tesla_Cybertruck_wikipedia.txt
+2025-03-05 10:59:16,008 - ERROR - ❌ NewsAPI Error: 401, {"status":"error","code":"apiKeyMissing","message":"Your API key is missing. Append this to the URL with the apiKey param, or use the x-api-key HTTP header."}
+2025-03-05 10:59:16,010 - INFO - ✅ Saved news text: /Users/windows/projects/Web_rag_image/src/data/text/Tesla_Cybertruck_news.txt
+2025-03-05 10:59:16,010 - INFO - 📄 Combined Retrieved Text:
+Wikipedia: The Tesla Cybertruck is a battery electric pickup truck manufactured by Tesla, Inc. since 2023. Introduced as a concept vehicle in November 2019, its body design is reminiscent of low-polygon modeling, consisting of flat stainless steel sheet panels.
+Tesla initially planned to produce the vehicle in late 2021, but after many delays, it entered production in November 2023 and was first delivered to customers later that month. Two models are currently offered: a trimotor all-wheel drive (AWD) model called Cyberbeast, and a dual-motor AWD model. A single-motor rear-wheel drive (RWD) model is slat
+
+News: 
+2025-03-05 11:02:44,272 - INFO - 🔄 Loaded cached wikipedia text for 'Tesla Cybertruck'
+2025-03-05 11:02:44,273 - INFO - 🔄 Loaded cached news text for 'Tesla Cybertruck'
+2025-03-05 11:02:50,558 - INFO - ✅ Retrieved 2 news articles for 'Tesla Cybertruck'
+2025-03-05 11:02:50,560 - INFO - ✅ Saved news text: /Users/windows/projects/Web_rag_image/src/data/text/Tesla_Cybertruck_news.txt
+2025-03-05 11:02:50,560 - INFO - 📄 Combined Retrieved Text:
+Wikipedia: The Tesla Cybertruck is a battery electric pickup truck manufactured by Tesla, Inc. since 2023. Introduced as a concept vehicle in November 2019, its body design is reminiscent of low-polygon modeling, consisting of flat stainless steel sheet panels.
+Tesla initially planned to produce the vehicle in late 2021, but after many delays, it entered production in November 2023 and was first delivered to customers later that month. Two models are currently offered: a trimotor all-wheel drive (AWD) model called Cyberbeast, and a dual-motor AWD model. A single-motor rear-wheel drive (RWD) model is slat
+
+News: US senator asks U.S. Secretary of State Marco Rubio to answer questions on planned Tesla Cybertruck purchase - The Times of India Ford F-150 Lightning sales have been falling for months: What’s going on with the EV pickup? - Electrek
+2025-03-05 11:03:32,910 - INFO - Wikipedia: language=en, user_agent: WebRAG-Bot/1.0 (contact: your-email@example.com) (Wikipedia-API/0.8.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=1
+2025-03-05 11:03:32,910 - INFO - Request URL: https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=info&titles=nothing phone 3a&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle|varianttitles
+2025-03-05 11:03:33,620 - ERROR - ❌ Wikipedia page for 'nothing phone 3a' not found.
+2025-03-05 11:03:33,623 - INFO - ✅ Saved wikipedia text: /Users/windows/projects/Web_rag_image/src/data/text/nothing_phone_3a_wikipedia.txt
+2025-03-05 11:03:39,852 - INFO - ✅ Retrieved 3 news articles for 'nothing phone 3a'
+2025-03-05 11:03:39,854 - INFO - ✅ Saved news text: /Users/windows/projects/Web_rag_image/src/data/text/nothing_phone_3a_news.txt
+2025-03-05 11:03:39,854 - INFO - 📄 Combined Retrieved Text:
+Wikipedia: 
+
+News: Mobile World Congress 2025: More Foldable Concepts, Plus Phones and Tablets You’ll Never Get to Use - Gizmodo.com Nothing showcased its Phone 3a and 3a Pro at MWC hours before launch - Android Central Here’s the Nothing Phone (3a) and Phone (3a) Pro in the flesh, a day before launch - 9to5google.com
