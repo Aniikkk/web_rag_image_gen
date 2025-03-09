@@ -1,6 +1,13 @@
-# web_rag_image_gen
+# Web-RAG for Real-Time Image Generation  
 
-<img width="1224" alt="image" src="https://github.com/user-attachments/assets/e5eb0c96-d1df-45d5-a759-d5783516893c" />
+**A Retrieval-Augmented Generation (RAG) pipeline for text-to-image synthesis using real-time web data**. This project retrieves **live image-text information** (Google Images, Wikipedia, News API) and uses **Stable Diffusion + ControlNet** for **context-aware AI-generated images**.
 
-<img width="983" alt="image" src="https://github.com/user-attachments/assets/f491f200-4914-4840-981f-79b4c5357574" />
+---
 
+## Progress So Far  
+**Image Retrieval:** Implemented **Google Image Search (SerpAPI)** for fetching real-world images.  
+**Text Retrieval:** Wikipedia & News API integration for **context-aware text data**.  
+**Caching System:** Stores retrieved **images (`data/images/`) & text (`data/text/`)**.  
+**Logging System:** Centralized **logs in `logs.txt`** for debugging & monitoring.  
+
+---
