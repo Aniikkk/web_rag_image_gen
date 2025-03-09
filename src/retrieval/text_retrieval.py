@@ -10,17 +10,14 @@ sys.path.append(BASE_DIR)
 from src.utils.logging import get_logger
 from src.retrieval.config import NEWS_API_KEY
 
-logger = get_logger(__name__)  # Initialize logger
+logger = get_logger(__name__) 
 
-# Load API keys from .env
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
-# Set up Wikipedia API with a valid User-Agent
-USER_AGENT = "WebRAG-Bot/1.0 (contact: your-email@example.com)"  # Replace with your email
+USER_AGENT = "WebRAG-Bot/1.0 (contact: anikethanrao1414@gmail.com)"  
 
-# Define text storage directory in project root
 TEXT_DIR = os.path.join(BASE_DIR, "data/text/")
-os.makedirs(TEXT_DIR, exist_ok=True)  # Ensure directory exists
+os.makedirs(TEXT_DIR, exist_ok=True)
 
 
 def get_wikipedia_summary(query, sentences=2):
@@ -32,7 +29,7 @@ def get_wikipedia_summary(query, sentences=2):
         logger.error(f"❌ Wikipedia page for '{query}' not found.")
         return None
 
-    summary = page.summary[:sentences * 300]  # Approx. word count for n sentences
+    summary = page.summary[:sentences * 300] 
     logger.info(f"✅ Wikipedia summary retrieved for '{query}'")
     return summary
 
@@ -65,7 +62,7 @@ def save_text(query, text, source, save_dir="./data/text/"):
     """Saves retrieved text to a file in the project root."""
     query_safe = query.replace(" ", "_")
     text_dir = os.path.join(BASE_DIR, save_dir)
-    os.makedirs(text_dir, exist_ok=True)  # Ensure directory exists
+    os.makedirs(text_dir, exist_ok=True) 
 
     file_path = os.path.join(text_dir, f"{query_safe}_{source}.txt")
     with open(file_path, "w", encoding="utf-8") as f:
@@ -90,11 +87,10 @@ def load_cached_text(query, source, save_dir="./data/text/"):
 
 def retrieve_text(query, use_cache=True):
     """Retrieves combined Wikipedia + News text, using cached data if available."""
-    # Check cache first
+
     wiki_text = load_cached_text(query, "wikipedia") if use_cache else None
     news_text = load_cached_text(query, "news") if use_cache else None
 
-    # If not cached, fetch from the web
     if not wiki_text:
         wiki_text = get_wikipedia_summary(query) or ""
         save_text(query, wiki_text, "wikipedia")
@@ -109,10 +105,11 @@ def retrieve_text(query, use_cache=True):
 
 
 if __name__ == "__main__":
-    query = "ipod"
+    query = "Tesla Cybertruck 2024"
     text_data = retrieve_text(query)
 
     if text_data:
-        logger.info(f"📄 Combined Retrieved Text:\n{text_data}")
+        print(f"📄 Retrieved Text:\n{text_data}")
     else:
-        logger.error("❌ No text data found.")
+        print("❌ No text data found.")
+
