@@ -1,3 +1,5 @@
 rag/
 data/images/*
+data/text/*
+logs.txt
 .DS_Store

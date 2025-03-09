@@ -1,17 +1,15 @@
 import logging
 import os
 
-# Get the absolute path to the root directory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LOG_FILE = os.path.join(BASE_DIR, "logs.txt")  # Log file in project root
+# Set log file to save in project root
+LOG_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../logs.txt"))
 
-# Configure logging
 logging.basicConfig(
-    level=logging.INFO,  # Log level (INFO, DEBUG, ERROR)
+    level=logging.INFO, 
     format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.FileHandler(LOG_FILE),  # Save logs to file
-        logging.StreamHandler()  # Print logs to console
+        logging.FileHandler(LOG_FILE),  # ✅ Saves logs in the project root
+        logging.StreamHandler()  # ✅ Also prints logs to console
     ]
 )
 
