@@ -9,8 +9,8 @@
 **Image Retrieval:** Implemented **Google Image Search (SerpAPI)** for fetching real-world images.  
 **Text Retrieval:** Wikipedia & News API integration for **context-aware text data**.  
 **Caching System:** Stores retrieved **images (`data/images/`) & text (`data/text/`)**.  
-**Logging System:** Centralized **logs in `logs.txt`** for debugging & monitoring.
-**Unified Retrieval:** Run `retrieval.py` to retrieve both image and text data together.
+**Logging System:** Centralized **logs in `logs.txt`** for debugging & monitoring.    
+**Unified Retrieval:** Run `retrieval.py` to retrieve both image and text data together.  
 **Pre-process:** Pre-process retrived (Canny edge detection and MiDas for depth detection) images for ControlNet.
 
 ---
