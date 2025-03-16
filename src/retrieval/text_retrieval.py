@@ -26,11 +26,11 @@ def get_wikipedia_summary(query, sentences=2):
     page = wiki_wiki.page(query)
 
     if not page.exists():
-        logger.error(f"❌ Wikipedia page for '{query}' not found.")
+        logger.error(f"Wikipedia page for '{query}' not found.")
         return None
 
     summary = page.summary[:sentences * 300] 
-    logger.info(f"✅ Wikipedia summary retrieved for '{query}'")
+    logger.info(f"Wikipedia summary retrieved for '{query}'")
     return summary
 
 
@@ -47,14 +47,14 @@ def get_latest_news(query, num_articles=3):
 
     response = requests.get(url, params=params)
     if response.status_code != 200:
-        logger.error(f"❌ NewsAPI Error: {response.status_code}, {response.text}")
+        logger.error(f"NewsAPI Error: {response.status_code}, {response.text}")
         return []
 
     data = response.json()
     articles = data.get("articles", [])
 
     news_texts = [f"{article['title']} - {article['source']['name']}" for article in articles]
-    logger.info(f"✅ Retrieved {len(news_texts)} news articles for '{query}'")
+    logger.info(f"Retrieved {len(news_texts)} news articles for '{query}'")
     return news_texts
 
 
@@ -80,7 +80,7 @@ def load_cached_text(query, source, save_dir="./data/text/"):
     if os.path.exists(file_path):
         with open(file_path, "r", encoding="utf-8") as f:
             cached_text = f.read()
-            logger.info(f"🔄 Loaded cached {source} text for '{query}'")
+            logger.info(f"Loaded cached {source} text for '{query}'")
             return cached_text
     return None
 

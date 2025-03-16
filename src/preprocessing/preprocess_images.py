@@ -52,6 +52,6 @@ def preprocess_images(query):
     print(f"Processed images saved in {processed_dir}")
 
 if __name__ == "__main__":
-    query = "Tesla Cybertruck 2024"
+    query = "plan_b_electronic_city"
     preprocess_images(query)
 

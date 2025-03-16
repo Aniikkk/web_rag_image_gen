@@ -24,7 +24,7 @@ def google_image_search(query, num_images=5):
     response = requests.get(url, params=params)
     
     if response.status_code != 200:
-        print(f"❌ API Error: {response.status_code}, {response.text}")
+        print(f"API Error: {response.status_code}, {response.text}")
         return []
 
     data = response.json()
@@ -47,9 +47,9 @@ if __name__ == "__main__":
     images = google_image_search(query, num_images)
     
     if images:
-        print(f"✅ Retrieved {len(images)} Images, Downloading...")
+        print(f"Retrieved {len(images)} Images, Downloading...")
         downloaded_files = download_images(images, query, save_dir="../../data/images", num_images=num_images)
-        print(f"✅ Downloaded Files: {downloaded_files}")
+        print(f"Downloaded Files: {downloaded_files}")
     else:
-        print("❌ No images found.")
+        print("No images found.")
 
