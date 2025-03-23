@@ -68,7 +68,7 @@ def save_text(query, text, source, save_dir="./data/text/"):
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(text)
     
-    logger.info(f"✅ Saved {source} text: {file_path}")
+    logger.info(f"\nSaved {source} text: {file_path}")
 
 
 def load_cached_text(query, source, save_dir="./data/text/"):
@@ -109,7 +109,7 @@ if __name__ == "__main__":
     text_data = retrieve_text(query)
 
     if text_data:
-        print(f"📄 Retrieved Text:\n{text_data}")
+        print(f"\nRetrieved Text:\n{text_data}")
     else:
-        print("❌ No text data found.")
+        print(f"\nNo text data found.")
 
