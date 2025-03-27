@@ -65,7 +65,7 @@ def refine_prompt(user_prompt):
         summary = get_wikipedia_summary(entity)
         if summary:
             logger.info(f"\n Retrieved context for entity: {entity}")
-            context_parts.append(f"{entity}: {summary[:200]}") 
+            context_parts.append(f"{entity}: {summary[:350]}") 
         else:
             logger.info(f"ℹ\n No context found for entity: {entity}")
 

@@ -26,9 +26,18 @@ os.makedirs(PROCESSED_DIR, exist_ok=True)
 
 def shorten_filename(text, length=50):
     """Shorten a filename by taking the first few words and adding a hash for uniqueness."""
-    short_text = "_".join(text.split()[:5])  # Use only the first 5 words
-    unique_hash = hashlib.md5(text.encode()).hexdigest()[:8]  # Add an 8-char hash
+    short_text = "_".join(text.split()[:5]) 
+    unique_hash = hashlib.md5(text.encode()).hexdigest()[:8] 
     return f"{short_text}_{unique_hash}"
+
+def save_text(filename, text):
+    """
+    Saves retrieved Wikipedia/News text to a file with a consistent filename.
+    """
+    file_path = os.path.join(TEXT_DIR, f"{filename}.txt")
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(text)
+    logger.info(f"\nSaved extracted text: {file_path}")
 
 def unified_retrieval(user_prompt, num_images=5):
     """
@@ -40,7 +49,7 @@ def unified_retrieval(user_prompt, num_images=5):
     - Fetches images from Google/Bing and preprocesses them for ControlNet.
     - Returns the enhanced prompt for AI image generation.
     """
-    logger.info(f"🔍 Starting Retrieval for User Prompt: '{user_prompt}'")
+    logger.info(f"\n Starting Retrieval for User Prompt: '{user_prompt}'")
 
     #  Extract key entities from the user prompt
     extracted_entities = extract_entities(user_prompt)
@@ -51,7 +60,7 @@ def unified_retrieval(user_prompt, num_images=5):
     for entity in extracted_entities:
         entity_text = retrieve_text(entity) 
         if entity_text:
-            retrieved_texts.append(f"{entity}: {entity_text[:200]}")
+            retrieved_texts.append(f"{entity}: {entity_text[:350]}")
 
     wiki_news_text = " | ".join(retrieved_texts) if retrieved_texts else ""
     logger.info(f"\n Retrieved Wikipedia & News Data:\n{wiki_news_text[:500]}...") 
@@ -59,6 +68,11 @@ def unified_retrieval(user_prompt, num_images=5):
     # Enhance the user prompt using extracted key facts
     final_prompt = refine_prompt(user_prompt)
     logger.info(f"\n Final Enhanced AI Prompt: {final_prompt}")
+
+    save_name = shorten_filename(final_prompt)
+
+    if wiki_news_text:
+        save_text(save_name, wiki_news_text)
 
     # Print the final AI prompt explicitly
     print(f"\n FINAL AI PROMPT:", final_prompt, "\n")
@@ -90,7 +104,7 @@ def unified_retrieval(user_prompt, num_images=5):
     }
 
 if __name__ == "__main__":
-    user_prompt = "a tesla cybertruck with neon lights in cyberpunk setting"
+    user_prompt = "cybertruck in a cyperpunk setting"
     result = unified_retrieval(user_prompt, num_images=5)
 
     if result["images"]:

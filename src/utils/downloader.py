@@ -23,6 +23,6 @@ def download_images(image_urls, query, save_dir="data/images/", num_images=5):
                 downloaded_files.append(filename)
         
         except Exception as e:
-            print(f"❌ Failed to download {url}: {e}")
+            print(f"\n Failed to download {url}: {e}")
     
     return downloaded_files
