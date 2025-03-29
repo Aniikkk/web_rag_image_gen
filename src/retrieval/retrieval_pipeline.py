@@ -104,7 +104,7 @@ def unified_retrieval(user_prompt, num_images=5):
     }
 
 if __name__ == "__main__":
-    user_prompt = "cybertruck in a cyperpunk setting"
+    user_prompt = "a cat using iphone16 pro"
     result = unified_retrieval(user_prompt, num_images=5)
 
     if result["images"]:
