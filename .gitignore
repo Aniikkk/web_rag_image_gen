@@ -2,6 +2,6 @@ rag/
 data/images/*
 data/text/*
 data/processed_images/*
-data/generated_images/*
+data/*
 logs.txt
 .DS_Store
