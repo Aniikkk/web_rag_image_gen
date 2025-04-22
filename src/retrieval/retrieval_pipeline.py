@@ -82,15 +82,23 @@ def unified_retrieval(user_prompt, num_images=5):
     # Retrieve Image Data
     query = final_prompt 
     image_urls = google_image_search(query, num_images)
+    downloaded_images = []
+    processed_images_path = f"{PROCESSED_DIR}{save_dir_name}/"
 
     if image_urls:
         logger.info(f" Retrieved {len(image_urls)} images, downloading...")
-        downloaded_images = download_images(image_urls, save_dir_name, save_dir="../../data/images", num_images=num_images)
+        downloaded_images = download_images(image_urls, save_dir_name, save_dir=IMAGE_DIR, num_images=num_images)
         logger.info(f" Images saved at: {downloaded_images}")
 
-        # Preprocess Images for ControlNet
-        preprocess_images(save_dir_name)
-        logger.info(f"\n Processed images saved in {PROCESSED_DIR}{save_dir_name}/")
+        if downloaded_images:
+            # Preprocess Images for ControlNet
+            processed_images = preprocess_images(save_dir_name)
+            if processed_images:
+                logger.info(f"\n Processed images saved in {processed_images_path}")
+            else:
+                logger.warning(f"\n Failed to process any images for '{query}'")
+        else:
+            logger.warning(f"\n Failed to download any images for '{query}'")
     else:
         logger.warning(f"\n No images found for '{query}'")
 
@@ -99,12 +107,12 @@ def unified_retrieval(user_prompt, num_images=5):
         "extracted_entities": extracted_entities,
         "enhanced_prompt": final_prompt,
         "wiki_news_text": wiki_news_text,
-        "images": downloaded_images if image_urls else [],
-        "processed_images": f"{PROCESSED_DIR}{save_dir_name}/"
+        "images": downloaded_images,
+        "processed_images": processed_images_path if downloaded_images else ""
     }
 
 if __name__ == "__main__":
-    user_prompt = "a cat using iphone16 pro"
+    user_prompt = "lion under a tree"
     result = unified_retrieval(user_prompt, num_images=5)
 
     if result["images"]:
